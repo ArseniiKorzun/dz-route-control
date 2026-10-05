@@ -1,0 +1,17 @@
+@model List<Product>
+@{
+    ViewData["Title"] = "Товари";
+}
+
+<h1>Товари</h1>
+
+<div class="products">
+    @foreach (var p in Model)
+    {
+        <a class="product-card" asp-controller="Product" asp-action="Details" asp-route-id="@p.Id">
+            <div class="emoji">@p.Emoji</div>
+            <h3>@p.Name</h3>
+            <span class="price">@p.Price.ToString("N0") грн</span>
+        </a>
+    }
+</div>
